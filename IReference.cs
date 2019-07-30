@@ -1,6 +1,5 @@
 namespace CSharpReference
 {
-    
     public interface IReference
     {
         int Code { get; }

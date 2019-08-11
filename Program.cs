@@ -3,17 +3,22 @@ using System.Linq;
 
 namespace CSharpReference
 {
-    internal class Program
+    public interface ICode
+    {
+        int Code { get; }
+        void Execute();
+    }
+    public static class Program
     {
         private static void Main(string[] args)
         {
             var references = AppDomain.CurrentDomain.GetAssemblies().SelectMany(x => x.GetTypes())
-                .Where(x => typeof(IReference).IsAssignableFrom(x) && !x.IsInterface && !x.IsAbstract)
-                .Select(x => (IReference) Activator.CreateInstance(x)).ToList();
+                .Where(x => typeof(ICode).IsAssignableFrom(x) && !x.IsInterface && !x.IsAbstract)
+                .Select(x => (ICode) Activator.CreateInstance(x)).ToList().OrderBy(x => x.Code);
 
             int.TryParse(args.FirstOrDefault(), out var code);
 
-            foreach (var reference in references) Console.WriteLine($"{reference.Code} - {reference.Name}");
+            foreach (var reference in references) Console.WriteLine($"{reference.Code} - {reference.GetType().Name}");
 
             if (code == 0) code = int.Parse(Console.ReadLine());
 

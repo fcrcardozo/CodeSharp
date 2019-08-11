@@ -2,7 +2,7 @@ using System;
 
 namespace CSharpReference.Events
 {
-    public class Events : IReference
+    public class Events : ICode
 
     {
         public int Code => 2;

@@ -2,7 +2,7 @@ using System;
 
 namespace CSharpReference.Loops
 {
-    public class Loops : IReference
+    public class Loops : ICode
     {
         public int Code => 1;
         public string Name => "Loops";

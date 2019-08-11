@@ -1,18 +1,14 @@
+
 using System;
-using System.Collections;
-using System.Diagnostics;
-using System.Linq;
 
 namespace CSharpReference.BitMap
 {
-    public class BitMapRunner : IReference
+    public class BitMap : ICode
     {
         public int Code => 3;
-        public string Name => "BitMap";
-
         public void Execute()
         {
-            var bm = new BitMap();
+            var bm = new BitMapCollection();
             bm.Add(1);
             bm.Add(2);
             bm.Add(4);
@@ -31,7 +27,7 @@ namespace CSharpReference.BitMap
             Console.ReadKey();
         }
 
-        private class BitMap
+        private class BitMapCollection
         {
             private bool[] _indexes = new bool[2];
             private int Capacity => _indexes.Length;

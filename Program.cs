@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Linq;
+using BenchmarkDotNet.Configs;
+using BenchmarkDotNet.Running;
 
 namespace CSharpReference
 {
@@ -27,7 +29,24 @@ namespace CSharpReference
 
             input = input.ToLower();
 
-            references.First(x => x.Name.ToLower().Contains(input)).Execute();
+            var code = references.First(x => x.Name.ToLower().Contains(input));
+
+            if (args != null && args.Length > 1 && args[1] == "b")
+            {
+                var retval = new[] { code.GetType().GetMethod("Execute") };
+
+                foreach (var item in retval)
+                {
+                    Console.WriteLine(item);
+                }
+                BenchmarkRunner.Run(code.GetType(), retval);
+            }
+            else
+            {
+                code.Execute();
+            }
+
+            Console.ReadLine();
         }
     }
 }

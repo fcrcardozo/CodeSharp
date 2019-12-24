@@ -5,8 +5,9 @@ namespace CSharpReference
 {
     public interface ICode
     {
-        int Code { get; }
         void Execute();
+
+        string Name => this.GetType().Name;
     }
     public static class Program
     {
@@ -14,15 +15,19 @@ namespace CSharpReference
         {
             var references = AppDomain.CurrentDomain.GetAssemblies().SelectMany(x => x.GetTypes())
                 .Where(x => typeof(ICode).IsAssignableFrom(x) && !x.IsInterface && !x.IsAbstract)
-                .Select(x => (ICode) Activator.CreateInstance(x)).ToList().OrderBy(x => x.Code);
+                .Select(x => (ICode)Activator.CreateInstance(x)).OrderBy(x => x.Name);
 
-            int.TryParse(args.FirstOrDefault(), out var code);
+            var input = args.FirstOrDefault();
 
-            foreach (var reference in references) Console.WriteLine($"{reference.Code} - {reference.GetType().Name}");
+            if (string.IsNullOrEmpty(input))
+            {
+                foreach (var reference in references) Console.WriteLine($"{reference.Name}");
+                input = Console.ReadLine();
+            }
 
-            if (code == 0) code = int.Parse(Console.ReadLine());
+            input = input.ToLower();
 
-            references.First(x => x.Code == code).Execute();
+            references.First(x => x.Name.ToLower().Contains(input)).Execute();
         }
     }
 }

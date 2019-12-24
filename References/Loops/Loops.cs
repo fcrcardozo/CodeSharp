@@ -5,7 +5,6 @@ namespace CSharpReference.Loops
     public class Loops : ICode
     {
         public int Code => 1;
-        public string Name => "Loops";
 
         public void Execute()
         {

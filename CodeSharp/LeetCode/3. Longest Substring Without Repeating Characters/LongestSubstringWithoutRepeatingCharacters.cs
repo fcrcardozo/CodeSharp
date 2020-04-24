@@ -12,17 +12,10 @@ namespace CSharpReference.LeetCode._3._Longest_Substring_Without_Repeating_Chara
             var longestValue = 0;
             var sub = string.Empty;
             var word = s;
-            var subStringCases = new List<string>();
             
-            while (word.Length > 0)
+            while (word.Length > 0 && sub.Length < word.Length)
             {
-                subStringCases.Add(word);
-                word = word.Substring(1);
-            }
-
-            Parallel.ForEach(subStringCases, subString =>
-            {
-                foreach (var t in subString)
+                foreach (var t in word)
                 {
                     if (sub.Contains(t) && sub.Length != 0)
                     {
@@ -40,7 +33,8 @@ namespace CSharpReference.LeetCode._3._Longest_Substring_Without_Repeating_Chara
                     longestValue = sub.Length;
                 }                            
                 sub = string.Empty;
-            });
+                word = word.Substring(1);
+            }
 
             return longestValue;
         }

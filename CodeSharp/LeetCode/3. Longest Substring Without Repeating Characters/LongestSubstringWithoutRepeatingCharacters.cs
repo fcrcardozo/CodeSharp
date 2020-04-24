@@ -10,34 +10,40 @@ namespace CSharpReference.LeetCode._3._Longest_Substring_Without_Repeating_Chara
         public int LengthOfLongestSubstring(string s)
         {
             var longestValue = 0;
-            var sub = string.Empty;
             var word = s;
+            var subs = new HashSet<char>();
+
+            var count = 1;
             
-            while (word.Length > 0 && sub.Length < word.Length)
+            while (count <= s.Length && subs.Count < word.Length)
             {
                 foreach (var t in word)
                 {
-                    if (sub.Contains(t) && sub.Length != 0)
+                    if (subs.Contains(t) && subs.Count != 0)
                     {
-                        if (sub.Length > longestValue)
-                        {
-                            longestValue = sub.Length;
-                        }                            
-                        sub = string.Empty;
+                        SetLogestValue(ref subs, ref longestValue);
                     }
-
-                    sub += t.ToString();
+                    subs.Add(t);
                 }
-                if (sub.Length > longestValue)
-                {
-                    longestValue = sub.Length;
-                }                            
-                sub = string.Empty;
-                word = word.Substring(1);
+                SetLogestValue(ref subs, ref longestValue);
+                word = s.Substring(count);
+                count++;
             }
 
             return longestValue;
         }
+
+        private static void SetLogestValue(ref HashSet<char> sub, ref int longestValue)
+        {
+            if (sub.Count > longestValue)
+            {
+                longestValue = sub.Count;
+            }
+
+            sub = new HashSet<char>();
+        }
+
+
         public void Execute()
         {
             Console.WriteLine(LengthOfLongestSubstring("aab"));

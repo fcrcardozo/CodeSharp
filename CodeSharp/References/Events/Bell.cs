@@ -1,6 +1,6 @@
 using System;
 
-namespace CSharpReference.Events
+namespace CSharpReference.References.Events
 {
     public class Bell
     {

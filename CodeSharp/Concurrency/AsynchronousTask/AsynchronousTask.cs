@@ -1,27 +1,27 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 
-namespace CSharpReference.Concurrency.AsyncAndAwait
+namespace CSharpReference.Concurrency.AsynchronousTask
 {
-    public class AsyncAndAwait: ICode
+    public class AsynchronousTask: ICode
     {
-        public async void Execute()
+        public void Execute()
         {
-            //Using await has order
+            //Using only tasks has no order
+            
+            //Run by last
+            GetSha256(new byte[100000]);
+            
             
             //Run first
-            await GetSha256(new byte[100000]);
-            
-            //Run second
-            await GetSha256(new byte[100]);
+            GetSha256(new byte[100]);
         }
 
-        private Task GetSha256(byte[] data)
+        private void GetSha256(byte[] data)
         {
-            return Task.Run(() =>
+            Task.Run(() =>
             {
                 var sha256 = new SHA256Managed();
                 var retval = sha256.ComputeHash(data);

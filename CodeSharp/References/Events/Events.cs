@@ -1,7 +1,6 @@
 using System;
-using System.Threading.Tasks;
 
-namespace CSharpReference.Events
+namespace CSharpReference.References.Events
 {
     public class Events : ICode
 

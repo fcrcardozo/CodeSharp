@@ -1,7 +1,6 @@
 using System;
-using System.Threading.Tasks;
 
-namespace CSharpReference.Loops
+namespace CSharpReference.References.Loops
 {
     public class Loops : ICode
     {

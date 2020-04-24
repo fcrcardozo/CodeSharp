@@ -60,7 +60,8 @@ namespace CSharpReference.LeetCode._3._Longest_Substring_Without_Repeating_Chara
             {
                 if (subs.Contains(c))
                 {
-                    subs = subs.Skip(subs.FindIndex(x => x == c) + 1).ToList();
+                    // subs = subs.Skip(subs.FindIndex(x => x == c) + 1).ToList(); slow :x
+                    subs.RemoveRange(0, subs.FindIndex(x => x == c) + 1);
                 }
                 subs.Add(c);
                 longestValue = Math.Max(longestValue, subs.Count);

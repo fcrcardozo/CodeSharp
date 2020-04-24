@@ -42,6 +42,29 @@ namespace CSharpReference.LeetCode._3._Longest_Substring_Without_Repeating_Chara
             sub = new List<char>();
         }
 
+        public int faster(string input)
+        {
+            int length = input.Length, ans = 0;
+            int start = 0; // i
+
+            Dictionary<char, int> map = new Dictionary<char, int>();
+
+            for (int j = 0; j < length; j++)
+            {
+                if(map.ContainsKey(input[j]))
+                {
+                    if(map[input[j]] >= start)
+                    {
+                        start = map[input[j]];
+                    }
+                }
+                               
+                ans = Math.Max(ans, j - start +1 );
+                map[input[j]] = j+1;
+            }
+            return ans;
+        }
+
 
         public void Execute()
         {

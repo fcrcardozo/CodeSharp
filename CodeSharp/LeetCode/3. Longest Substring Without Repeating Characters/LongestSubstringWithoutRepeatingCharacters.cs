@@ -9,7 +9,7 @@ namespace CSharpReference.LeetCode._3._Longest_Substring_Without_Repeating_Chara
     {
         public int LengthOfLongestSubstring(string s)
         {
-            var values = new List<int>();
+            var longestValue = 0;
             var sub = string.Empty;
             var word = s;
             var subStringCases = new List<string>();
@@ -26,17 +26,23 @@ namespace CSharpReference.LeetCode._3._Longest_Substring_Without_Repeating_Chara
                 {
                     if (sub.Contains(t) && sub.Length != 0)
                     {
-                        values.Add(sub.Length);
+                        if (sub.Length > longestValue)
+                        {
+                            longestValue = sub.Length;
+                        }                            
                         sub = string.Empty;
                     }
 
                     sub += t.ToString();
                 }
-                values.Add(sub.Length);
+                if (sub.Length > longestValue)
+                {
+                    longestValue = sub.Length;
+                }                            
                 sub = string.Empty;
             });
 
-            return values.Any() ? values.Max() : 0;
+            return longestValue;
         }
         public void Execute()
         {

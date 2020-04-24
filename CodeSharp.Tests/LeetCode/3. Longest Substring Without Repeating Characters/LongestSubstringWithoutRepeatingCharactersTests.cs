@@ -28,7 +28,7 @@ namespace CodeSharp.Tests.LeetCode._3._Longest_Substring_Without_Repeating_Chara
             var longestSubstringWithoutRepeatingCharacters = new LongestSubstringWithoutRepeatingCharacters();
             
             //When
-            var value = longestSubstringWithoutRepeatingCharacters.LengthOfLongestSubstringSlidingWindow(str);
+            var value = longestSubstringWithoutRepeatingCharacters.LengthOfLongestSubstringSlidingWindowOptimizedASCII(str);
 
             //Then
             value.Should().Be(result);

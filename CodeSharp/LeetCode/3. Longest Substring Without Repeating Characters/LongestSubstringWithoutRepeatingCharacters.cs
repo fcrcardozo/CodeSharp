@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -95,30 +96,45 @@ namespace CSharpReference.LeetCode._3._Longest_Substring_Without_Repeating_Chara
             sub = new List<char>();
         }
 
-        public int faster(string input)
+        public int LengthOfLongestSubstringSlidingWindowOptimized(string s)
         {
-            int length = input.Length, ans = 0;
-            int start = 0; // i
+            int ans = 0;
+            int start = 0; 
 
-            Dictionary<char, int> map = new Dictionary<char, int>();
+            IDictionary<char, int> map = new Dictionary<char, int>();
 
-            for (int j = 0; j < length; j++)
+            for (int j = 0; j < s.Length; j++)
             {
-                if (map.ContainsKey(input[j]))
+                if (map.ContainsKey(s[j]))
                 {
-                    if (map[input[j]] >= start)
+                    if (map[s[j]] >= start)
                     {
-                        start = map[input[j]];
+                        start = map[s[j]];
                     }
                 }
 
                 ans = Math.Max(ans, j - start + 1);
-                map[input[j]] = j + 1;
+                map[s[j]] = j + 1;
             }
 
             return ans;
         }
 
+        public int LengthOfLongestSubstringSlidingWindowOptimizedASCII(string s)
+        {
+            int longestValue = 0, end = 0, start = 0;
+            var characters = new int[128];
+            var length = s.Length;
+
+            for (; end < length; end++)
+            {
+                start = Math.Max(characters[s[end]], start);
+                longestValue = Math.Max(longestValue, end - start + 1);
+                characters[s[end]] = end + 1;
+            }
+
+            return longestValue;
+        }
 
         public void Execute()
         {

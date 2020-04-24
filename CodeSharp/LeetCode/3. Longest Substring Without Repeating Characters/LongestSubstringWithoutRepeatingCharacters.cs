@@ -11,8 +11,7 @@ namespace CSharpReference.LeetCode._3._Longest_Substring_Without_Repeating_Chara
         {
             var longestValue = 0;
             var word = s;
-            var subs = new HashSet<char>();
-
+            var subs = new List<char>();
             var count = 1;
             
             while (count <= s.Length && subs.Count < word.Length)
@@ -33,14 +32,14 @@ namespace CSharpReference.LeetCode._3._Longest_Substring_Without_Repeating_Chara
             return longestValue;
         }
 
-        private static void SetLogestValue(ref HashSet<char> sub, ref int longestValue)
+        private static void SetLogestValue(ref List<char> sub, ref int longestValue)
         {
             if (sub.Count > longestValue)
             {
                 longestValue = sub.Count;
             }
 
-            sub = new HashSet<char>();
+            sub = new List<char>();
         }
 
 

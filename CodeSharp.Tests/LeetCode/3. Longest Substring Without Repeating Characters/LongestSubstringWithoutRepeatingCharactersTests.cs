@@ -1,5 +1,5 @@
 ﻿using System.Runtime.InteropServices;
-using CSharpReference.LeetCode._3._Longest_Substring_Without_Repeating_Characters;
+using CSharpReference.LeetCode._3LongestSubstringWithoutRepeatingCharacters;
 using FluentAssertions;
 using Xunit;
 

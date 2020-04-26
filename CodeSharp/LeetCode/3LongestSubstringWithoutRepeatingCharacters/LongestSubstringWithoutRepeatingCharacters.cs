@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 
-namespace CSharpReference.LeetCode._3._Longest_Substring_Without_Repeating_Characters
+namespace CSharpReference.LeetCode._3LongestSubstringWithoutRepeatingCharacters
 {
     public class LongestSubstringWithoutRepeatingCharacters: ICode
     {

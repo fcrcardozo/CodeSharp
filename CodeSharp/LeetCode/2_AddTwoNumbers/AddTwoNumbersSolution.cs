@@ -24,7 +24,7 @@ namespace CSharpReference.LeetCode._2_AddTwoNumbers
             return CreateListNodes(cArrInverse.ToArray());
         }
 
-        private BigInteger Inverse(string num)
+        private static BigInteger Inverse(string num)
         {
             var numArr = num.Select(x => int.Parse(x.ToString())).ToArray();
             
@@ -38,7 +38,7 @@ namespace CSharpReference.LeetCode._2_AddTwoNumbers
         }
 
 
-        public string GetAllNumbersListNode(ListNode l, List<int> acumulator)
+        public static string GetAllNumbersListNode(ListNode l, List<int> acumulator)
         {
             acumulator.Add(l.val);
             if (l.next != null)
@@ -49,7 +49,7 @@ namespace CSharpReference.LeetCode._2_AddTwoNumbers
             return string.Join(string.Empty, acumulator);
         }
 
-        public ListNode CreateListNodes(int[] x)
+        public static ListNode CreateListNodes(int[] x)
         {
             var l = new ListNode(x[0]);
             

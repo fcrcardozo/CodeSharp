@@ -19,13 +19,13 @@ namespace CodeSharp.Tests.LeetCode._2_AddTwoNumbers
             
             var addTwoNumbers = new AddTwoNumbersSolution();
 
-            var l1 = addTwoNumbers.CreateListNodes(n1);
-            var l2 = addTwoNumbers.CreateListNodes(n2);
+            var l1 = AddTwoNumbersSolution.CreateListNodes(n1);
+            var l2 = AddTwoNumbersSolution.CreateListNodes(n2);
 
             var lResult = addTwoNumbers.AddTwoNumbers(l1, l2);
 
 
-            var result = addTwoNumbers.GetAllNumbersListNode(lResult, new List<int>());
+            var result = AddTwoNumbersSolution.GetAllNumbersListNode(lResult, new List<int>());
             result.Should().Be(mustBe);
         }
     }

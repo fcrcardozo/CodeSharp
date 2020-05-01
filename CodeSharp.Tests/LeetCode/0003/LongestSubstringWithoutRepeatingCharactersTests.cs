@@ -1,9 +1,8 @@
-﻿using System.Runtime.InteropServices;
-using CSharpReference.LeetCode._3LongestSubstringWithoutRepeatingCharacters;
+﻿using CSharpReference.LeetCode._0003;
 using FluentAssertions;
 using Xunit;
 
-namespace CodeSharp.Tests.LeetCode._3._Longest_Substring_Without_Repeating_Characters
+namespace CodeSharp.Tests.LeetCode._0003
 {
     public class LongestSubstringWithoutRepeatingCharactersTests
     {

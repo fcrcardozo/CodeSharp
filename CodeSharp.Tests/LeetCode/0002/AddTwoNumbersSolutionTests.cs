@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using CSharpReference.LeetCode._2_AddTwoNumbers;
+using CSharpReference.LeetCode._0002;
 using FluentAssertions;
 using Xunit;
 
-namespace CodeSharp.Tests.LeetCode._2_AddTwoNumbers
+namespace CodeSharp.Tests.LeetCode._0002
 {
     public class AddTwoNumbersSolutionTests
     {

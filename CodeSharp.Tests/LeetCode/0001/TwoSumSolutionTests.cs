@@ -1,8 +1,8 @@
-﻿using CSharpReference.LeetCode._1_TwoSum;
+﻿using CSharpReference.LeetCode._0001;
 using FluentAssertions;
 using Xunit;
 
-namespace CodeSharp.Tests.LeetCode._1_TwoSum
+namespace CodeSharp.Tests.LeetCode._0001
 {
     public class TwoSumSolutionTests
     {

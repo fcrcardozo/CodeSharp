@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Numerics;
 
-namespace CSharpReference.LeetCode._2_AddTwoNumbers
+namespace CSharpReference.LeetCode._0002
 {
     public class AddTwoNumbersSolution
     {

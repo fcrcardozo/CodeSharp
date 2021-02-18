@@ -1,7 +1,6 @@
 using System;
-using System.Linq;
 
-namespace CSharpReference.Linguage
+namespace CSharpReference.Language
 {
     public class Person
     {
